@@ -110,20 +110,20 @@ export const FloralCorners = () => {
       {/* Left Floral Border */}
       <motion.img 
         src={`${import.meta.env.BASE_URL}floral_side.png`}
-        animate={{ rotate: [ -1.5, 1.5, -1.5 ], x: ["-15%", "-5%", "-15%"] }}
+        animate={{ rotate: [ -1.5, 1.5, -1.5 ] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[-10vh] bottom-[-10vh] left-0 h-[120vh] w-[75px] sm:w-[120px] md:w-[25vw] max-w-[400px] min-w-[50px] object-cover object-left opacity-90 origin-left"
+        className="absolute top-[-10vh] bottom-[-10vh] left-0 h-[120vh] w-[45vw] max-w-[600px] min-w-[200px] object-cover object-left opacity-90 origin-bottom-left"
         style={{ filter: "var(--filter-floral)" }}
         alt="Left Botanical Border"
       />
 
       {/* Right Floral Border Container (Flipped horizontally natively) */}
-      <div className="absolute top-[-10vh] bottom-[-10vh] right-0 h-[120vh] w-[75px] sm:w-[120px] md:w-[25vw] max-w-[400px] min-w-[50px]" style={{ transform: "scaleX(-1)" }}>
+      <div className="absolute top-[-10vh] bottom-[-10vh] right-0 h-[120vh] w-[45vw] max-w-[600px] min-w-[200px]" style={{ transform: "scaleX(-1)" }}>
         <motion.img 
           src={`${import.meta.env.BASE_URL}floral_side.png`}
-          animate={{ rotate: [ -1.5, 1.5, -1.5 ], x: ["-15%", "-5%", "-15%"] }}
+          animate={{ rotate: [ -1.5, 1.5, -1.5 ] }}
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="w-full h-full object-cover object-left opacity-90 origin-left"
+          className="w-full h-full object-cover object-left opacity-90 origin-bottom-left"
           style={{ filter: "var(--filter-floral)" }}
           alt="Right Botanical Border"
         />
