@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-light-bg: #FAF9F6;
-  --color-cream: #FFF8F0;
-  --color-soft-gold: #C5A47E;
-  --color-sage-green: #A8C3A0;
-  --color-blush-pink: #FADADD;
-  --color-text-main: #2C2C2C;
-  --color-text-light: #5A5A5A;
+  --color-light-bg: var(--color-bg-primary);
+  --color-cream: var(--color-bg-secondary);
+  --color-soft-gold: var(--color-accent);
+  --color-sage-green: var(--color-accent-2);
+  --color-blush-pink: var(--color-accent-3);
+  --color-text-main: var(--color-text-primary);
+  --color-text-light: var(--color-text-secondary);
 
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
@@ -16,13 +16,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 @layer base {
+  :root {
+    --color-bg-primary: #FAF9F6;
+    --color-bg-secondary: #FFF8F0;
+    --color-accent: #C5A47E;
+    --color-accent-2: #A8C3A0;
+    --color-accent-3: #FADADD;
+    --color-text-primary: #2C2C2C;
+    --color-text-secondary: #5A5A5A;
+
+    --glass-card-border: rgba(255, 255, 255, 0.9);
+    --glass-card-bg-start: rgba(255, 244, 235, 0.85);
+    --glass-card-bg-end: rgba(252, 232, 213, 0.7);
+    --glass-panel-bg-start: rgba(255, 248, 240, 0.8);
+    --glass-panel-bg-end: rgba(252, 240, 225, 0.85);
+
+    --blend-floral: darken;
+    --filter-floral: contrast(1.25) saturate(0.85);
+  }
+
+  html.dark {
+    --color-bg-primary: #0A0C10; 
+    --color-bg-secondary: #13151A;
+    --color-accent: #D4AF37;
+    --color-accent-2: #3E5A44;
+    --color-accent-3: #4A2E35;
+    --color-text-primary: #FCF8F5;
+    --color-text-secondary: #BAB5A9;
+
+    --glass-card-border: rgba(212, 175, 55, 0.15); 
+    --glass-card-bg-start: rgba(20, 24, 30, 0.6);
+    --glass-card-bg-end: rgba(13, 16, 20, 0.7);
+    --glass-panel-bg-start: rgba(20, 24, 30, 0.55);
+    --glass-panel-bg-end: rgba(13, 16, 20, 0.75);
+
+    --blend-floral: screen;
+    --filter-floral: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.15) saturate(1.2);
+  }
+
   body {
-    background-color: var(--color-light-bg);
-    color: var(--color-text-main);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
     font-family: var(--font-sans);
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    transition: background-color 0.8s ease, color 0.8s ease;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -37,15 +76,38 @@
     background-blend-mode: multiply;
   }
   .glass-card-light {
-    @apply bg-gradient-to-br from-cream/90 to-[#FCE8D5]/80 backdrop-blur-xl border border-white/90 shadow-[0_10px_40px_-10px_rgba(197,164,126,0.25)];
+    background: linear-gradient(to bottom right, var(--glass-card-bg-start), var(--glass-card-bg-end));
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-card-border);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+  }
+  .glass-card-light:hover {
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 15px 40px -15px rgba(212, 175, 55, 0.2);
   }
   .glass-panel-light {
-    @apply bg-gradient-to-br from-cream/80 to-[#FCF0E1]/85 backdrop-blur-3xl border border-white/80 shadow-[0_15px_50px_-15px_rgba(197,164,126,0.15)];
+    background: linear-gradient(to bottom right, var(--glass-panel-bg-start), var(--glass-panel-bg-end));
+    backdrop-filter: blur(35px);
+    border: 1px solid var(--glass-card-border);
+    box-shadow: 0 15px 50px -15px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
   }
   .text-glow-soft {
     text-shadow: 0 0 20px rgba(197, 164, 126, 0.4);
   }
   .btn-gold {
-    @apply px-8 py-4 bg-white/80 backdrop-blur-md rounded-full text-text-main font-sans font-medium hover:bg-soft-gold hover:text-white hover:shadow-[0_0_20px_rgba(197,164,126,0.4)] transition-all duration-500 border border-soft-gold/40;
+     background: var(--glass-card-bg-start);
+     color: var(--color-text-primary);
+     border: 1px solid var(--glass-card-border);
+     backdrop-filter: blur(12px);
+     transition: all 0.4s ease;
+     padding: 1rem 2rem;
+     border-radius: 9999px;
+  }
+  .btn-gold:hover {
+     background: var(--color-accent);
+     color: var(--color-bg-primary);
+     transform: scale(1.05);
   }
 }

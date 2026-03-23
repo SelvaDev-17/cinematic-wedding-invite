@@ -5,7 +5,7 @@ import Countdown from './components/Countdown';
 import Events from './components/Events';
 import Venue from './components/Venue';
 import Footer from './components/Footer';
-import { ScrollProgress, MusicToggle, Particles, FloralCorners } from './components/Effects';
+import { ScrollProgress, MusicToggle, ThemeToggle, Particles, FloralCorners } from './components/Effects';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
@@ -62,6 +62,7 @@ function App() {
 
       <ScrollProgress />
       <MusicToggle />
+      <ThemeToggle />
       <FloralCorners />
       <Particles />
 

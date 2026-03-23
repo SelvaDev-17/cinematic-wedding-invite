@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX, Sun, Moon } from 'lucide-react';
 
 export const ScrollProgress = () => {
   const { scrollYProgress } = useScroll();
@@ -42,7 +42,8 @@ export const MusicToggle = () => {
       onClick={toggleMusic}
       whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed top-6 right-6 z-50 p-3 rounded-full bg-white/80 backdrop-blur-md text-text-main hover:text-soft-gold transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.05)] border border-soft-gold/30"
+      className="fixed top-6 right-6 z-[60] p-3 rounded-full backdrop-blur-md transition-all duration-300 shadow-sm border"
+      style={{ background: "var(--glass-card-bg-start)", color: "var(--color-text-primary)", borderColor: "var(--glass-card-border)" }}
       aria-label="Toggle background music"
     >
       {isPlaying ? <Volume2 size={20} strokeWidth={1.5} /> : <VolumeX size={20} strokeWidth={1.5} />}
@@ -50,15 +51,58 @@ export const MusicToggle = () => {
   );
 };
 
+export const ThemeToggle = () => {
+  const [isDark, setIsDark] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  useEffect(() => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      setIsDark(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      setIsDark(true);
+    }
+  };
+
+  return (
+    <motion.button
+      onClick={toggleTheme}
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.95 }}
+      style={{
+         background: "var(--glass-card-bg-start)",
+         color: "var(--color-text-primary)",
+         borderColor: "var(--glass-card-border)"
+      }}
+      className="fixed top-6 left-6 z-[60] p-3 rounded-full backdrop-blur-md transition-all duration-500 shadow-md border hover:shadow-lg inline-flex items-center justify-center cursor-pointer"
+      aria-label="Toggle dark mode"
+      title="Toggle Dark Mode"
+    >
+      {isDark ? <Moon size={20} strokeWidth={1.5} /> : <Sun size={20} strokeWidth={1.5} />}
+    </motion.button>
+  );
+};
+
 export const FloralCorners = () => {
   return (
-    <div className="fixed inset-0 z-[50] pointer-events-none overflow-hidden mix-blend-darken">
+    <div className="fixed inset-0 z-[50] pointer-events-none overflow-hidden" style={{ mixBlendMode: "var(--blend-floral)" }}>
       {/* Left Floral Border */}
       <motion.img 
         src={`${import.meta.env.BASE_URL}floral_side.png`}
         animate={{ rotate: [ -1.5, 1.5, -1.5 ], x: ["-15%", "-10%", "-15%"] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[-10vh] bottom-[-10vh] left-0 h-[120vh] w-[110px] sm:w-[150px] md:w-[30vw] max-w-[500px] min-w-[100px] object-cover object-right filter contrast-125 saturate-[0.85] opacity-90 origin-left"
+        className="absolute top-[-10vh] bottom-[-10vh] left-0 h-[120vh] w-[110px] sm:w-[150px] md:w-[30vw] max-w-[500px] min-w-[100px] object-cover object-right opacity-90 origin-left"
+        style={{ filter: "var(--filter-floral)" }}
         alt="Left Botanical Border"
       />
 
@@ -68,7 +112,8 @@ export const FloralCorners = () => {
           src={`${import.meta.env.BASE_URL}floral_side.png`}
           animate={{ rotate: [ -1.5, 1.5, -1.5 ], x: ["-15%", "-10%", "-15%"] }}
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="w-full h-full object-cover object-right filter contrast-125 saturate-[0.85] opacity-90 origin-left"
+          className="w-full h-full object-cover object-right opacity-90 origin-left"
+          style={{ filter: "var(--filter-floral)" }}
           alt="Right Botanical Border"
         />
       </div>
