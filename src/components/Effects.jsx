@@ -52,24 +52,19 @@ export const MusicToggle = () => {
 };
 
 export const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
-  });
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
-    }
+    // Always enforce the bright pastel Day Mode as the default on every fresh visit
+    document.documentElement.classList.remove('dark');
   }, []);
 
   const toggleTheme = () => {
-    if (document.documentElement.classList.contains('dark')) {
+    if (isDark) {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
       setIsDark(false);
     } else {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
       setIsDark(true);
     }
   };
