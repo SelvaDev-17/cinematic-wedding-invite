@@ -95,7 +95,19 @@ export const ThemeToggle = () => {
 
 export const FloralCorners = () => {
   return (
-    <div className="fixed inset-0 z-[50] pointer-events-none overflow-hidden" style={{ mixBlendMode: "var(--blend-floral)" }}>
+    <>
+      <svg style={{ width: 0, height: 0, position: 'absolute', pointerEvents: 'none' }}>
+        <filter id="remove-white" colorInterpolationFilters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="1   0   0   0   0
+                    0   1   0   0   0
+                    0   0   1   0   0
+                   -4  -4  -4   0  11.8"
+          />
+        </filter>
+      </svg>
+      <div className="fixed inset-0 z-[50] pointer-events-none overflow-hidden" style={{ mixBlendMode: "var(--blend-floral)" }}>
       {/* Left Floral Border */}
       <motion.img 
         src={`${import.meta.env.BASE_URL}floral_side.png`}
@@ -117,7 +129,8 @@ export const FloralCorners = () => {
           alt="Right Botanical Border"
         />
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
