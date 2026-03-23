@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Hero from './components/Hero';
 import InvitationText from './components/InvitationText';
 import Countdown from './components/Countdown';
@@ -72,6 +73,7 @@ function App() {
       <Events />
       <Venue />
       <Footer />
+      <Analytics />
     </div>
   );
 }
