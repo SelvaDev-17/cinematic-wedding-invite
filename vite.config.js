@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/cinematic-wedding-invite/",
+  base: process.env.GITHUB_ACTIONS ? "/cinematic-wedding-invite/" : "/",
   plugins: [
     tailwindcss(),
     react()
