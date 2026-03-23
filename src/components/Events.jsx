@@ -18,13 +18,12 @@ const Events = () => {
       viewport={{ once: true, margin: "-50px" }}
       className="glass-card-light rounded-[2rem] md:rounded-[2.5rem] p-8 sm:p-10 md:p-14 text-center w-full max-w-[90%] md:max-w-lg mx-auto relative overflow-hidden group border border-white transition-all duration-700 hover:-translate-y-3 hover:shadow-[0_25px_50px_-20px_rgba(197,164,126,0.2)]"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-cream/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-      
-      <div className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full flex items-center justify-center mb-6 md:mb-8 border border-soft-gold/30 shadow-sm relative z-10 transition-transform duration-700 group-hover:scale-110 p-3 md:p-4" style={{ backgroundColor: "var(--color-bg-primary)" }}>
+      <div className="w-20 h-20 md:w-24 md:h-24 mx-auto rounded-full flex items-center justify-center mb-6 md:mb-8 border border-soft-gold/30 shadow-md relative z-10 transition-transform duration-700 group-hover:scale-110 p-1 overflow-hidden" style={{ backgroundColor: "var(--color-bg-primary)" }}>
         <img 
            src={`${import.meta.env.BASE_URL}${icon}`}
            alt={`${title} Icon`}
-           className="w-full h-full object-contain drop-shadow-sm"
+           className="w-full h-full object-contain"
+           style={{ filter: "url(#remove-white)" }}
         />
       </div>
 

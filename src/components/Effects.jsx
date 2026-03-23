@@ -23,9 +23,9 @@ export const MusicToggle = () => {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    audioRef.current = new Audio(`${import.meta.env.BASE_URL}music_trimmed.mp3`);
-    audioRef.current.loop = true;
-    audioRef.current.volume = 0.4;
+    if (audioRef.current) {
+      audioRef.current.volume = 0.4;
+    }
   }, []);
 
   const toggleMusic = () => {
@@ -38,16 +38,19 @@ export const MusicToggle = () => {
   };
 
   return (
-    <motion.button
-      onClick={toggleMusic}
-      whileHover={{ scale: 1.05, y: -2 }}
-      whileTap={{ scale: 0.95 }}
-      className="fixed top-6 right-6 z-[60] p-3 rounded-full backdrop-blur-md transition-all duration-300 shadow-sm border"
-      style={{ background: "var(--glass-card-bg-start)", color: "var(--color-text-primary)", borderColor: "var(--glass-card-border)" }}
-      aria-label="Toggle background music"
-    >
-      {isPlaying ? <Volume2 size={20} strokeWidth={1.5} /> : <VolumeX size={20} strokeWidth={1.5} />}
-    </motion.button>
+    <>
+      <audio ref={audioRef} src={`${import.meta.env.BASE_URL}music_trimmed.mp3`} loop preload="auto" />
+      <motion.button
+        onClick={toggleMusic}
+        whileHover={{ scale: 1.05, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed top-6 right-6 z-[60] p-3 rounded-full backdrop-blur-md transition-all duration-300 shadow-sm border"
+        style={{ background: "var(--glass-card-bg-start)", color: "var(--color-text-primary)", borderColor: "var(--glass-card-border)" }}
+        aria-label="Toggle background music"
+      >
+        {isPlaying ? <Volume2 size={20} strokeWidth={1.5} /> : <VolumeX size={20} strokeWidth={1.5} />}
+      </motion.button>
+    </>
   );
 };
 
