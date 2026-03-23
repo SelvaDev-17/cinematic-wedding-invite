@@ -29,7 +29,7 @@ const Venue = () => {
 
           <div className="w-full h-48 md:h-64 mb-8 rounded-2xl overflow-hidden relative shadow-[0_0_15px_rgba(255,0,110,0.3)] border border-neon-gold/20">
              <div className="absolute inset-0 bg-neon-purple/20 mix-blend-overlay z-10 transition-opacity duration-500 hover:opacity-0"></div>
-             <img src="/venue.jpg" alt="Asirvatham Mahal Venue" className="w-full h-full object-cover filter contrast-125" />
+             <img src={`${import.meta.env.BASE_URL}venue.jpg`} alt="Asirvatham Mahal Venue" className="w-full h-full object-cover filter contrast-125" />
           </div>
 
           <h3 className="font-serif text-3xl md:text-5xl text-glow-gold text-white mb-6">Asirvatham Mahal</h3>

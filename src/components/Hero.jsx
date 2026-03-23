@@ -17,7 +17,7 @@ const Hero = () => {
         style={{ y: y1, scale }}
       >
         <img 
-           src="/warm_rings.png" 
+           src={`${import.meta.env.BASE_URL}warm_rings.png`} 
            alt="Wedding Rings Background"
            className="absolute inset-0 w-full h-full object-cover"
         />
@@ -39,7 +39,7 @@ const Hero = () => {
           className="mb-2 flex flex-col items-center justify-center relative"
         >
           <div className="absolute inset-0 bg-neon-gold/20 blur-2xl rounded-full"></div>
-          <img src="/ganesha.png" className="w-20 md:w-28 h-auto object-contain drop-shadow-[0_0_15px_rgba(255,190,11,0.8)] relative z-10" alt="Ganesh" />
+          <img src={`${import.meta.env.BASE_URL}ganesha.png`} className="w-20 md:w-28 h-auto object-contain drop-shadow-[0_0_15px_rgba(255,190,11,0.8)] relative z-10" alt="Ganesh" />
         </motion.div>
 
         <motion.h2 

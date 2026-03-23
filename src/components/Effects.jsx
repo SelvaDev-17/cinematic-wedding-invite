@@ -24,7 +24,7 @@ export const MusicToggle = () => {
 
   useEffect(() => {
     // Note: Provide an actual file or let user provide it in public folder
-    audioRef.current = new Audio('/music_trimmed.mp3');
+    audioRef.current = new Audio(`${import.meta.env.BASE_URL}music_trimmed.mp3`);
     audioRef.current.loop = true;
     audioRef.current.volume = 0.5;
   }, []);
