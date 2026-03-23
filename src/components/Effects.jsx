@@ -53,31 +53,24 @@ export const MusicToggle = () => {
 export const FloralCorners = () => {
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-      {/* Top Left Botanical Element */}
-      <motion.svg 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6, y: [0, 15, 0], rotate: [0, 2, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-12 -left-12 w-64 h-64 text-sage-green/40 opacity-60" 
-        viewBox="0 0 200 200" 
-        fill="currentColor"
-      >
-        <path d="M100,20 C80,60 40,80 10,100 C40,120 80,140 100,180 C120,140 160,120 190,100 C160,80 120,60 100,20 Z" filter="blur(1px)"/>
-        <path d="M100,0 C70,40 20,60 -10,80 C20,100 70,120 100,160 C130,120 180,100 210,80 C180,60 130,40 100,0 Z" className="text-blush-pink/30 origin-center rotate-45 scale-75" filter="blur(2px)"/>
-      </motion.svg>
+      {/* Left Floral Border */}
+      <motion.img 
+        src={`${import.meta.env.BASE_URL}floral_side.png`}
+        animate={{ rotate: [ -1.5, 1.5, -1.5 ], x: ["-15%", "-10%", "-15%"] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[-10vh] bottom-[-10vh] left-0 h-[120vh] w-[40vw] md:w-[30vw] max-w-[500px] min-w-[200px] object-cover object-right mix-blend-darken filter contrast-125 saturate-[0.85] opacity-90 origin-left"
+        alt="Botanical Border"
+      />
 
-      {/* Bottom Right Botanical Element */}
-      <motion.svg 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.5, y: [0, -15, 0], rotate: [0, -2, 0] }}
-        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute -bottom-16 -right-16 w-80 h-80 text-soft-gold/30 opacity-50" 
-        viewBox="0 0 200 200" 
-        fill="currentColor"
-      >
-         <path d="M100,20 C80,60 40,80 10,100 C40,120 80,140 100,180 C120,140 160,120 190,100 C160,80 120,60 100,20 Z" className="rotate-90 origin-center" filter="blur(1px)"/>
-         <path d="M100,0 C70,40 20,60 -10,80 C20,100 70,120 100,160 C130,120 180,100 210,80 C180,60 130,40 100,0 Z" className="text-sage-green/20 origin-center rotate-[135deg] scale-75" filter="blur(2px)"/>
-      </motion.svg>
+      {/* Right Floral Border */}
+      <motion.img 
+        src={`${import.meta.env.BASE_URL}floral_side.png`}
+        initial={{ scaleX: -1 }}
+        animate={{ rotate: [ 1.5, -1.5, 1.5 ], x: ["15%", "10%", "15%"], scaleX: -1 }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute top-[-10vh] bottom-[-10vh] right-0 h-[120vh] w-[40vw] md:w-[30vw] max-w-[500px] min-w-[200px] object-cover object-right mix-blend-darken filter contrast-125 saturate-[0.85] opacity-90 origin-right"
+        alt="Botanical Border"
+      />
     </div>
   );
 };
