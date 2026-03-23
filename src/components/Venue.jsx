@@ -27,7 +27,7 @@ const Venue = () => {
         >
           {/* Parallax background image integrating venue.jpg seamlessly */}
           <div className="absolute inset-0 w-full h-full overflow-hidden rounded-[2rem] md:rounded-[3rem] -z-10">
-             <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px] z-10 transition-colors duration-700 group-hover:bg-white/50"></div>
+             <div className="absolute inset-0 z-10 transition-colors duration-700" style={{ background: "var(--glass-panel-bg-start)", opacity: 0.8 }}></div>
              <img 
                 src={`${import.meta.env.BASE_URL}venue.jpg`} 
                 alt="Asirvatham Mahal Venue" 
@@ -35,7 +35,7 @@ const Venue = () => {
              />
           </div>
 
-          <div className="relative z-20 bg-white/90 backdrop-blur-md rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 shadow-sm border border-white mt-32 sm:mt-48 transition-transform duration-700 group-hover:-translate-y-2">
+          <div className="relative z-20 glass-card-light rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 shadow-md border-none mt-32 sm:mt-48 transition-transform duration-700 group-hover:-translate-y-2 mx-4 sm:mx-0">
             <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-text-main mb-4 md:mb-6 tracking-wide">Asirvatham Mahal</h3>
             <p className="font-sans text-sm sm:text-base md:text-xl text-text-light max-w-2xl mx-auto leading-relaxed mb-8 md:mb-10 tracking-wide">
               1No3, Madambakkam Main Rd, Maruthi Nagar, Madambakkam, Chennai, Tamil Nadu 600073

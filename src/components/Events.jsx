@@ -20,7 +20,7 @@ const Events = () => {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-cream/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
       
-      <div className="w-16 h-16 md:w-20 md:h-20 mx-auto bg-white rounded-full flex items-center justify-center mb-6 md:mb-8 border border-soft-gold/20 shadow-sm relative z-10 transition-transform duration-700 group-hover:scale-110">
+      <div className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-full flex items-center justify-center mb-6 md:mb-8 border border-soft-gold/30 shadow-sm relative z-10 transition-transform duration-700 group-hover:scale-110" style={{ backgroundColor: "var(--color-bg-primary)" }}>
         <span className="text-soft-gold text-2xl md:text-3xl">🌿</span>
       </div>
 
