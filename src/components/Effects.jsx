@@ -97,7 +97,7 @@ export const FloralCorners = () => {
   return (
     <>
       <svg style={{ width: 0, height: 0, position: 'absolute', pointerEvents: 'none' }}>
-        <filter id="remove-white" colorInterpolationFilters="sRGB">
+        <filter id="remove-white" colorInterpolationFilters="sRGB" x="0%" y="0%" width="100%" height="100%">
           <feColorMatrix
             type="matrix"
             values="1   0   0   0   0
@@ -105,6 +105,7 @@ export const FloralCorners = () => {
                     0   0   1   0   0
                    -4  -4  -4   0  11.8"
           />
+          <feComposite in2="SourceGraphic" operator="in" />
         </filter>
       </svg>
       <div className="fixed inset-0 z-[50] pointer-events-none overflow-hidden" style={{ mixBlendMode: "var(--blend-floral)" }}>
