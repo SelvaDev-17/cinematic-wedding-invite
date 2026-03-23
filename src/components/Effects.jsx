@@ -52,25 +52,26 @@ export const MusicToggle = () => {
 
 export const FloralCorners = () => {
   return (
-    <div className="fixed inset-0 z-[50] pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 z-[50] pointer-events-none overflow-hidden mix-blend-darken">
       {/* Left Floral Border */}
       <motion.img 
         src={`${import.meta.env.BASE_URL}floral_side.png`}
         animate={{ rotate: [ -1.5, 1.5, -1.5 ], x: ["-15%", "-10%", "-15%"] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[-10vh] bottom-[-10vh] left-0 h-[120vh] w-[40vw] md:w-[30vw] max-w-[500px] min-w-[200px] object-cover object-right mix-blend-darken filter contrast-125 saturate-[0.85] opacity-90 origin-left"
-        alt="Botanical Border"
+        className="absolute top-[-10vh] bottom-[-10vh] left-0 h-[120vh] w-[40vw] md:w-[30vw] max-w-[500px] min-w-[200px] object-cover object-right filter contrast-125 saturate-[0.85] opacity-90 origin-left"
+        alt="Left Botanical Border"
       />
 
-      {/* Right Floral Border */}
-      <motion.img 
-        src={`${import.meta.env.BASE_URL}floral_side.png`}
-        initial={{ scaleX: -1 }}
-        animate={{ rotate: [ 1.5, -1.5, 1.5 ], x: ["15%", "10%", "15%"], scaleX: -1 }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute top-[-10vh] bottom-[-10vh] right-0 h-[120vh] w-[40vw] md:w-[30vw] max-w-[500px] min-w-[200px] object-cover object-right mix-blend-darken filter contrast-125 saturate-[0.85] opacity-90 origin-right"
-        alt="Botanical Border"
-      />
+      {/* Right Floral Border Container (Flipped horizontally natively) */}
+      <div className="absolute top-[-10vh] bottom-[-10vh] right-0 h-[120vh] w-[40vw] md:w-[30vw] max-w-[500px] min-w-[200px]" style={{ transform: "scaleX(-1)" }}>
+        <motion.img 
+          src={`${import.meta.env.BASE_URL}floral_side.png`}
+          animate={{ rotate: [ -1.5, 1.5, -1.5 ], x: ["-15%", "-10%", "-15%"] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="w-full h-full object-cover object-right filter contrast-125 saturate-[0.85] opacity-90 origin-left"
+          alt="Right Botanical Border"
+        />
+      </div>
     </div>
   );
 };
